@@ -1,0 +1,30 @@
+/ Import necessary dependencies
+import React, { useState } from 'react';
+import { Button } from '@mantine/core';
+
+// Define the functional component
+const HealthApp: React.FC = () => {
+  // State management using React hooks
+  const [healthStatus, setHealthStatus] = useState<string>('Good');
+
+  // Function to handle health status update
+  const updateHealthStatus = () => {
+    // Simulate fetching updated health status from an API
+    const newHealthStatus = fetchHealthStatus(); // Assuming fetchHealthStatus is a function that fetches data from an API
+
+    // Update the state with the fetched health status
+    setHealthStatus(newHealthStatus);
+  };
+
+  return (
+    <div>
+      <h1>Health Application</h1>
+      <p>Your current health status: {healthStatus}</p>
+
+      {/* Mantine Button to trigger health status update */}
+      <Button onClick={updateHealthStatus}>Update Health Status</Button>
+    </div>
+  );
+};
+
+export default HealthApp;
